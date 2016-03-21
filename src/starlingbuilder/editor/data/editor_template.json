@@ -17,6 +17,26 @@
             ],
             "tag":"asset"
         },
+		{
+            "cls":"starling.display.ImageBox",
+            "params":[
+                {"name":"width", "min":0, "read_only":true, "link":true},
+                {"name":"height", "min":0, "read_only":true, "link":true},
+                {"name":"scaleX", "step":0.01, "default_value":1},
+                {"name":"scaleY", "step":0.01, "default_value":1},
+                {"name":"color", "component":"colorPicker", "default_value":16777215},
+                {"name":"texture", "read_only":true, "component":"popup", "cls":true, "disable":true, "default_value":null, "editPropertyClass":"starlingbuilder.editor.ui.TextureConstructorPopup"},
+                {"name":"hAlign", "component":"pickerList", "options":["left", "center", "right"], "default_value":"center"},
+                {"name":"vAlign", "component":"pickerList", "options":["top", "center", "bottom"], "default_value":"center"},
+				{"name":"clip", "component":"check", "default_value":false},
+                {"name":"mode", "component":"pickerList", "options":["normal", "fit", "fill", "zoom", "stretch"], "default_value":"normal"}
+            ],
+            "constructorParams":
+            [
+                {"cls":"starling.textures.Texture"}
+            ],
+            "tag":"asset"
+        },
         {
             "cls":"starling.display.Quad",
             "params":[
@@ -61,6 +81,7 @@
             "params":[
                 {"name":"width", "min":0},
                 {"name":"height", "min":0},
+                {"name":"letterSpacing", "min":0},
                 {"name":"text"},
                 {"name":"fontName", "component":"textInput", "options":[], "default_value":"Verdana"},
                 {"name":"fontSize", "min":1, "step":1},
@@ -143,8 +164,9 @@
         {
             "cls":"feathers.controls.LayoutGroup",
             "params":[
+				{"name":"touchableChildren", "component":"check", "default_value":true},
                 {"name":"width", "min":0, "explicitField":"explicitWidth"},
-                {"name":"height", "min":0, "explicitField":"explicitHeight"},
+				{"name":"height", "min":0, "explicitField":"explicitHeight"},
                 {"name":"backgroundSkin", "component":"popup", "cls":true, "disable":true, "default_value":null, "editPropertyClass":"starlingbuilder.editor.ui.DisplayObjectPropertyPopup"},
                 {"name":"layout", "component":"popup", "cls":true, "disable":true, "default_value":null, "editPropertyClass":"starlingbuilder.editor.ui.DefaultEditPropertyPopup",
                 "supportedClasses":[null, "feathers.layout.HorizontalLayout", "feathers.layout.VerticalLayout", "feathers.layout.AnchorLayout", "feathers.layout.FlowLayout", "feathers.layout.TiledRowsLayout", "feathers.layout.TiledColumnsLayout", "feathers.layout.WaterfallLayout"]},
@@ -160,7 +182,12 @@
             "cls":"feathers.controls.ScrollContainer",
             "params":[
                 {"name":"width", "min":0, "explicitField":"explicitWidth"},
-                {"name":"height", "min":0, "explicitField":"explicitHeight"},
+				{"name":"height", "min":0, "explicitField":"explicitHeight"},
+				{"name":"pageWidth", "min":0},
+                {"name":"pageHeight", "min":0},
+                {"name":"clipContent", "component":"check", "default_value":false},
+                {"name":"snapToPages", "component":"check", "default_value":false},
+				{"name":"autoSizeMode", "component":"pickerList", "options":["stage", "content"], "default_value":"stage"},
                 {"name":"layout", "component":"popup", "cls":true, "disable":true, "default_value":null, "editPropertyClass":"starlingbuilder.editor.ui.DefaultEditPropertyPopup",
                     "supportedClasses":[null, "feathers.layout.HorizontalLayout", "feathers.layout.VerticalLayout", "feathers.layout.AnchorLayout", "feathers.layout.FlowLayout", "feathers.layout.TiledRowsLayout", "feathers.layout.TiledColumnsLayout", "feathers.layout.WaterfallLayout"]},
                 {"name":"layoutData", "component":"popup", "cls":true, "disable":true, "default_value":null, "editPropertyClass":"starlingbuilder.editor.ui.DefaultEditPropertyPopup",
@@ -173,6 +200,23 @@
         {
             "cls":"starling.display.Sprite",
             "params":[
+				{"name":"touchableChildren", "component":"check", "default_value":true},
+                {"name":"width", "min":0, "read_only":true, "link":true},
+                {"name":"height", "min":0, "read_only":true, "link":true},
+                {"name":"scaleX", "step":0.01, "default_value":1},
+                {"name":"scaleY", "step":0.01, "default_value":1}
+            ],
+            "container":true,
+            "tag":"container"
+        },
+
+		{
+            "cls":"starling.display.SpriteBox",
+            "params":[
+				{"name":"hitTestByContentSize", "component":"check", "default_value":false},
+				{"name":"touchableChildren", "component":"check", "default_value":true},
+                {"name":"contentWidth", "min":0},
+                {"name":"contentHeight", "min":0},
                 {"name":"width", "min":0, "read_only":true, "link":true},
                 {"name":"height", "min":0, "read_only":true, "link":true},
                 {"name":"scaleX", "step":0.01, "default_value":1},
@@ -547,6 +591,9 @@
     {
         "params":[
             {"name":"name", "default_value":null},
+            {"name":"touchable", "component":"check", "default_value":true},
+            {"name":"saturated", "component":"check", "default_value":true},
+            {"name":"includeInParentBounds", "component":"check", "default_value":true},
             {"name":"x", "step":1, "default_value":0},
             {"name":"y", "step":1, "default_value":0},
             {"name":"pivotX", "default_value":0},

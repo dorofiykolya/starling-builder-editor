@@ -828,6 +828,7 @@ package starlingbuilder.editor.controller
             {
                 return null;
             }
+			return null;
         }
 
         public function importData(data:Object, file:File):void
@@ -1416,6 +1417,7 @@ package starlingbuilder.editor.controller
                 if (!workspace.resolvePath(name).exists)
                     return name;
             }
+			return null;
         }
     }
 }

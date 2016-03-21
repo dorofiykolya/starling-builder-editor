@@ -18,6 +18,8 @@ package starlingbuilder.editor
     import feathers.layout.VerticalLayout;
     import feathers.layout.VerticalSpinnerLayout;
     import feathers.layout.WaterfallLayout;
+	import starling.display.ImageBox;
+	import starling.display.SpriteBox;
 
     import starling.display.Button;
     import starling.display.Image;
@@ -110,7 +112,9 @@ package starlingbuilder.editor
             BlurFilter,
             GlowFilter,
             DropShadowFilter,
-            ColorFilter
+            ColorFilter,
+			SpriteBox,
+			ImageBox
         ]
 
         public static const DEFAULT_SCALE3_RATIO:Array = [0.49, 0.02, "horizontal"];

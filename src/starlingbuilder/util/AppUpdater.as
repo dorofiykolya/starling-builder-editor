@@ -38,7 +38,7 @@ package starlingbuilder.util
             _appUpdater.isDownloadProgressVisible = true;
             _appUpdater.isInstallUpdateVisible = true;
 
-            _appUpdater.initialize();
+            //_appUpdater.initialize();
         }
 
         private function onUpdateStatus(event:StatusUpdateEvent):void

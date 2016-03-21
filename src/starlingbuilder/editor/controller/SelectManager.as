@@ -110,11 +110,11 @@ package starlingbuilder.editor.controller
 
         public function selectByRect(rect:Rectangle, paramsDict:Dictionary, uiBuilder:IUIBuilder):void
         {
-            for (var obj:DisplayObject in paramsDict)
+            for (var obj:Object in paramsDict)
             {
-                if (!allParentsTrue(obj, "touchable") || !allParentsTrue(obj, "visible")) continue;
+                if (!allParentsTrue(DisplayObject(obj), "touchable") || !allParentsTrue(DisplayObject(obj), "visible")) continue;
 
-                var bound:Rectangle = obj.getBounds(Starling.current.stage);
+                var bound:Rectangle = DisplayObject(obj).getBounds(Starling.current.stage);
 
                 if (rect.intersects(bound) && _selectedObjects.indexOf(obj) == -1 && !uiBuilder.isContainer(paramsDict[obj]))
                 {
