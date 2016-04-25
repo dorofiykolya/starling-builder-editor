@@ -1,7 +1,7 @@
 {
 
     "supported_components":[
-        {
+		{
             "cls":"starling.display.Image",
             "params":[
                 {"name":"width", "min":0, "read_only":true, "link":true},
@@ -20,8 +20,8 @@
 		{
             "cls":"starling.display.ImageBox",
             "params":[
-                {"name":"width", "min":0, "read_only":true, "link":true},
-                {"name":"height", "min":0, "read_only":true, "link":true},
+                {"name":"width", "min":0, "link":true},
+                {"name":"height", "min":0, "link":true},
                 {"name":"scaleX", "step":0.01, "default_value":1},
                 {"name":"scaleY", "step":0.01, "default_value":1},
                 {"name":"color", "component":"colorPicker", "default_value":16777215},
@@ -75,7 +75,120 @@
             ],
             "tag":"asset"
         },
-
+		{
+            "cls":"starling.extensions.PDImageParticleSystem",
+            "params":[
+				{"name":"blendFactorSource", "component":"pickerList", "options":["destinationAlpha", "destinationColor", "one", "oneMinusDestinationAlpha", "oneMinusDestinationColor", "oneMinusSourceAlpha", "oneMinusSourceColor", "sourceAlpha", "sourceColor", "zero"], "default_value":"one"},
+				{"name":"blendFactorDestination", "component":"pickerList", "options":["destinationAlpha", "destinationColor", "one", "oneMinusDestinationAlpha", "oneMinusDestinationColor", "oneMinusSourceAlpha", "oneMinusSourceColor", "sourceAlpha", "sourceColor", "zero"], "default_value":"oneMinusSourceAlpha"},
+                {"name":"startAlpha", "component":"slider", "min":0, "max":1, "step":0.01, "default_value":1},
+                {"name":"endAlpha", "component":"slider", "min":0, "max":1, "step":0.01, "default_value":1},
+                {"name":"startRGB", "component":"colorPicker", "default_value":16777215},
+                {"name":"endRGB", "component":"colorPicker", "default_value":16777215},
+                {"name":"emitterX", "default_value":0},
+                {"name":"emitterY", "default_value":0},
+                {"name":"emissionRate", "default_value":0},
+                {"name":"maxCapacity", "default_value":16383},
+                {"name":"startSize", "default_value":50},
+                {"name":"startSizeVariance", "default_value":0},
+                {"name":"endSize", "default_value":0},
+                {"name":"endSizeVariance", "default_value":0},
+                {"name":"startRotation", "default_value":0},
+                {"name":"startRotationVariance", "default_value":0},
+                {"name":"speed", "default_value":100},
+                {"name":"speedVariance", "default_value":0},
+                {"name":"endRotation", "default_value":0},
+                {"name":"endRotationVariance", "default_value":0},
+                {"name":"emitAngle", "default_value":0},
+                {"name":"emitAngleVariance", "default_value":0},
+                {"name":"lifespan", "default_value":2},
+                {"name":"lifespanVariance", "default_value":0},
+                {"name":"gravityX", "default_value":0},
+                {"name":"gravityY", "default_value":0},
+                {"name":"radialAcceleration", "default_value":0},
+                {"name":"radialAccelerationVariance", "default_value":0},
+                {"name":"tangentialAcceleration", "default_value":0},
+                {"name":"tangentialAccelerationVariance", "default_value":0},
+                {"name":"maxRadius", "default_value":100},
+                {"name":"maxRadiusVariance", "default_value":0},
+                {"name":"minRadius", "default_value":10},
+                {"name":"minRadiusVariance", "default_value":0},
+                {"name":"rotatePerSecond", "default_value":1},
+                {"name":"rotatePerSecondVariance", "default_value":0},
+                {"name":"maxNumParticles", "default_value":50},
+                {"name":"emitterXVariance", "default_value":0},
+                {"name":"emitterYVariance", "default_value":0},
+                {"name":"emitterType", "options":[0, 1], "default_value":0},
+                {"name":"scaleX", "step":0.01, "default_value":1},
+                {"name":"scaleY", "step":0.01, "default_value":1},
+				{"name":"contentWidth", "min":0},
+                {"name":"contentHeight", "min":0},
+				{"name":"width", "min":0},
+                {"name":"height", "min":0},
+                {"name":"texture", "read_only":true, "component":"popup", "cls":true, "disable":true, "default_value":null, "editPropertyClass":"starlingbuilder.editor.ui.TextureConstructorPopup"}
+            ],
+            "constructorParams":
+            [
+				{"cls":"XML", "constructorParams":[{"value":"<particleEmitterConfig><texture name=\"texture.png\"/><sourcePosition x=\"300.00\" y=\"300.00\"/><sourcePositionVariance x=\"0.00\" y=\"0.00\"/><speed value=\"100.00\"/><speedVariance value=\"30.00\"/><particleLifeSpan value=\"2.0000\"/><particleLifespanVariance value=\"1.9000\"/><angle value=\"270.00\"/><angleVariance value=\"2.00\"/><gravity x=\"0.00\" y=\"0.00\"/><radialAcceleration value=\"0.00\"/><tangentialAcceleration value=\"0.00\"/><radialAccelVariance value=\"0.00\"/><tangentialAccelVariance value=\"0.00\"/><startColor red=\"1.00\" green=\"0.31\" blue=\"0.00\" alpha=\"0.62\"/><startColorVariance red=\"0.00\" green=\"0.00\" blue=\"0.00\" alpha=\"0.00\"/><finishColor red=\"1.00\" green=\"0.31\" blue=\"0.00\" alpha=\"0.00\"/><finishColorVariance red=\"0.00\" green=\"0.00\" blue=\"0.00\" alpha=\"0.00\"/><maxParticles value=\"500\"/><startParticleSize value=\"70.00\"/><startParticleSizeVariance value=\"49.53\"/><finishParticleSize value=\"10.00\"/><FinishParticleSizeVariance value=\"5.00\"/><duration value=\"-1.00\"/><emitterType value=\"0\"/><maxRadius value=\"100.00\"/><maxRadiusVariance value=\"0.00\"/><minRadius value=\"0.00\"/><minRadiusVariance value=\"0.00\"/><rotatePerSecond value=\"0.00\"/><rotatePerSecondVariance value=\"0.00\"/><blendFuncSource value=\"770\"/><blendFuncDestination value=\"771\"/><rotationStart value=\"0.00\"/><rotationStartVariance value=\"0.00\"/><rotationEnd value=\"0.00\"/><rotationEndVariance value=\"0.00\"/></particleEmitterConfig>"}]},
+				{"cls":"starling.textures.Texture"}
+            ],
+            "tag":"asset"
+        },
+		{
+            "cls":"starling.extensions.PDParticleSystem",
+            "params":[
+				{"name":"blendFactorSource", "component":"pickerList", "options":["destinationAlpha", "destinationColor", "one", "oneMinusDestinationAlpha", "oneMinusDestinationColor", "oneMinusSourceAlpha", "oneMinusSourceColor", "sourceAlpha", "sourceColor", "zero"], "default_value":"one"},
+				{"name":"blendFactorDestination", "component":"pickerList", "options":["destinationAlpha", "destinationColor", "one", "oneMinusDestinationAlpha", "oneMinusDestinationColor", "oneMinusSourceAlpha", "oneMinusSourceColor", "sourceAlpha", "sourceColor", "zero"], "default_value":"oneMinusSourceAlpha"},
+                {"name":"startAlpha", "component":"slider", "min":0, "max":1, "step":0.01, "default_value":1},
+                {"name":"endAlpha", "component":"slider", "min":0, "max":1, "step":0.01, "default_value":1},
+                {"name":"startRGB", "component":"colorPicker", "default_value":16777215},
+                {"name":"endRGB", "component":"colorPicker", "default_value":16777215},
+                {"name":"emitterX", "default_value":0},
+                {"name":"emitterY", "default_value":0},
+                {"name":"emissionRate", "default_value":0},
+                {"name":"maxCapacity", "default_value":16383},
+                {"name":"startSize", "default_value":50},
+                {"name":"startSizeVariance", "default_value":0},
+                {"name":"endSize", "default_value":0},
+                {"name":"endSizeVariance", "default_value":0},
+                {"name":"startRotation", "default_value":0},
+                {"name":"startRotationVariance", "default_value":0},
+                {"name":"speed", "default_value":100},
+                {"name":"speedVariance", "default_value":0},
+                {"name":"endRotation", "default_value":0},
+                {"name":"endRotationVariance", "default_value":0},
+                {"name":"emitAngle", "default_value":0},
+                {"name":"emitAngleVariance", "default_value":0},
+                {"name":"lifespan", "default_value":2},
+                {"name":"lifespanVariance", "default_value":0},
+                {"name":"gravityX", "default_value":0},
+                {"name":"gravityY", "default_value":0},
+                {"name":"radialAcceleration", "default_value":0},
+                {"name":"radialAccelerationVariance", "default_value":0},
+                {"name":"tangentialAcceleration", "default_value":0},
+                {"name":"tangentialAccelerationVariance", "default_value":0},
+                {"name":"maxRadius", "default_value":100},
+                {"name":"maxRadiusVariance", "default_value":0},
+                {"name":"minRadius", "default_value":10},
+                {"name":"minRadiusVariance", "default_value":0},
+                {"name":"rotatePerSecond", "default_value":1},
+                {"name":"rotatePerSecondVariance", "default_value":0},
+                {"name":"maxNumParticles", "default_value":50},
+                {"name":"emitterXVariance", "default_value":0},
+                {"name":"emitterYVariance", "default_value":0},
+                {"name":"emitterType", "options":[0, 1], "default_value":0},
+                {"name":"scaleX", "step":0.01, "default_value":1},
+                {"name":"scaleY", "step":0.01, "default_value":1},
+				{"name":"width", "min":0},
+                {"name":"height", "min":0},
+                {"name":"texture", "read_only":true, "component":"popup", "cls":true, "disable":true, "default_value":null, "editPropertyClass":"starlingbuilder.editor.ui.TextureConstructorPopup"}
+            ],
+            "constructorParams":
+            [
+				{"cls":"XML", "constructorParams":[{"value":"<particleEmitterConfig><texture name=\"texture.png\"/><sourcePosition x=\"300.00\" y=\"300.00\"/><sourcePositionVariance x=\"0.00\" y=\"0.00\"/><speed value=\"100.00\"/><speedVariance value=\"30.00\"/><particleLifeSpan value=\"2.0000\"/><particleLifespanVariance value=\"1.9000\"/><angle value=\"270.00\"/><angleVariance value=\"2.00\"/><gravity x=\"0.00\" y=\"0.00\"/><radialAcceleration value=\"0.00\"/><tangentialAcceleration value=\"0.00\"/><radialAccelVariance value=\"0.00\"/><tangentialAccelVariance value=\"0.00\"/><startColor red=\"1.00\" green=\"0.31\" blue=\"0.00\" alpha=\"0.62\"/><startColorVariance red=\"0.00\" green=\"0.00\" blue=\"0.00\" alpha=\"0.00\"/><finishColor red=\"1.00\" green=\"0.31\" blue=\"0.00\" alpha=\"0.00\"/><finishColorVariance red=\"0.00\" green=\"0.00\" blue=\"0.00\" alpha=\"0.00\"/><maxParticles value=\"500\"/><startParticleSize value=\"70.00\"/><startParticleSizeVariance value=\"49.53\"/><finishParticleSize value=\"10.00\"/><FinishParticleSizeVariance value=\"5.00\"/><duration value=\"-1.00\"/><emitterType value=\"0\"/><maxRadius value=\"100.00\"/><maxRadiusVariance value=\"0.00\"/><minRadius value=\"0.00\"/><minRadiusVariance value=\"0.00\"/><rotatePerSecond value=\"0.00\"/><rotatePerSecondVariance value=\"0.00\"/><blendFuncSource value=\"770\"/><blendFuncDestination value=\"771\"/><rotationStart value=\"0.00\"/><rotationStartVariance value=\"0.00\"/><rotationEnd value=\"0.00\"/><rotationEndVariance value=\"0.00\"/></particleEmitterConfig>"}]},
+				{"cls":"starling.textures.Texture"}
+            ],
+            "tag":"asset"
+        },
         {
             "cls":"starling.text.TextField",
             "params":[
@@ -593,6 +706,7 @@
             {"name":"name", "default_value":null},
             {"name":"touchable", "component":"check", "default_value":true},
             {"name":"saturated", "component":"check", "default_value":true},
+            {"name":"visible", "component":"check", "default_value":true},
             {"name":"includeInParentBounds", "component":"check", "default_value":true},
             {"name":"x", "step":1, "default_value":0},
             {"name":"y", "step":1, "default_value":0},

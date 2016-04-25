@@ -52,6 +52,7 @@ package starlingbuilder.editor.ui
 
         private var _pivotTool:PivotTool;
         private var _movieClipTool:MovieClipTool;
+		private var _particleSystemTool:ParticleSystemTool;
 
         private var _paramCache:Dictionary;
         private var _propertyPanelCache:Dictionary;
@@ -91,6 +92,9 @@ package starlingbuilder.editor.ui
 
             _movieClipTool = new MovieClipTool();
             addChild(_movieClipTool);
+			
+			_particleSystemTool = new ParticleSystemTool();
+			addChild(_particleSystemTool);
         }
 
         private function displayObjectPropertyFactory(target:Object, param:Object):IPropertyRetriever
@@ -214,6 +218,7 @@ package starlingbuilder.editor.ui
             }
 
             _movieClipTool.updateMovieClipTool();
+			_particleSystemTool.updateTool();
         }
 
 

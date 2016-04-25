@@ -20,6 +20,8 @@ package starlingbuilder.editor
     import feathers.layout.WaterfallLayout;
 	import starling.display.ImageBox;
 	import starling.display.SpriteBox;
+	import starling.extensions.PDImageParticleSystem;
+	import starling.extensions.PDParticleSystem;
 
     import starling.display.Button;
     import starling.display.Image;
@@ -114,7 +116,9 @@ package starlingbuilder.editor
             DropShadowFilter,
             ColorFilter,
 			SpriteBox,
-			ImageBox
+			ImageBox,
+			PDParticleSystem,
+			PDImageParticleSystem
         ]
 
         public static const DEFAULT_SCALE3_RATIO:Array = [0.49, 0.02, "horizontal"];
