@@ -156,7 +156,8 @@ package starlingbuilder.util.feathers
 
         private function reloadData():void
         {
-            for (var i:int = 0; i < _container.numChildren; ++i)
+			var i:int = 0;
+            for (; i < _container.numChildren; ++i)
             {
                 var obj:DisplayObject = _container.getChildAt(i);
                 obj.removeEventListeners(FeathersEventType.FOCUS_OUT);
@@ -178,8 +179,6 @@ package starlingbuilder.util.feathers
             }
 
             _container.width = MIN_INPUT_WIDTH * _gridLayout.columnCount;
-
-            var i:int;
 
             var input:TextInput;
 
@@ -231,7 +230,7 @@ package starlingbuilder.util.feathers
                 var item:Object = _data[key];
 
                 if (item is String) input.text = item as String;
-                else if (item != undefined)
+                else if (item != null)
                 {
                     input.text = JSON.stringify(item);
                 }
