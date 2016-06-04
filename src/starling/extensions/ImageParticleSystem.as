@@ -228,6 +228,17 @@ package starling.extensions
         public function set emitterY(value:Number):void { mEmitterY = value; }
         
         public function get texture():Texture { return mTexture; }
-        public function set texture(value:Texture):void { mTexture = value;}
+        public function set texture(value:Texture):void 
+		{ 
+			if (value != mTexture)
+			{
+				mTexture = value;
+				for each (var item:Image in mImages) 
+				{
+					item.texture = mTexture;
+					item.readjustSize();
+				}
+			}
+		}
 	}
 }
